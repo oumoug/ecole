@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCoursLabel" jhiTranslate="ecoleApp.cours.home.createOrEditLabel">Create or edit a Cours</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!cours.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="cours.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ecoleApp.cours.date" for="field_date">Date</label>
+            <div class="input-group">
+                <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="cours.date"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ecoleApp.cours.heure" for="field_heure">Heure</label>
+            <div class="d-flex">
+                <input id="field_heure" type="datetime-local" class="form-control" name="heure" [(ngModel)]="cours.heure"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ecoleApp.cours.coursProfesseur" for="field_coursProfesseur">Cours Professeur</label>
+            <select class="form-control" id="field_coursProfesseur" name="coursProfesseur" [(ngModel)]="cours.coursProfesseurId" required>
+                <option *ngIf="!editForm.value.coursProfesseur" [ngValue]="null" selected></option>
+                <option [ngValue]="professeurOption.id" *ngFor="let professeurOption of coursprofesseurs; trackBy: trackProfesseurById">{{professeurOption.nom}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.coursProfesseur?.dirty && editForm.controls.coursProfesseur?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.coursProfesseur?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ecoleApp.cours.coursClass" for="field_coursClass">Cours Class</label>
+            <select class="form-control" id="field_coursClass" name="coursClass" [(ngModel)]="cours.coursClassId" required>
+                <option *ngIf="!editForm.value.coursClass" [ngValue]="null" selected></option>
+                <option [ngValue]="classeOption.id" *ngFor="let classeOption of coursclasses; trackBy: trackClasseById">{{classeOption.nomClass}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.coursClass?.dirty && editForm.controls.coursClass?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.coursClass?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ecoleApp.cours.salleCours" for="field_salleCours">Salle Cours</label>
+            <select class="form-control" id="field_salleCours" name="salleCours" [(ngModel)]="cours.salleCoursId" required>
+                <option *ngIf="!editForm.value.salleCours" [ngValue]="null" selected></option>
+                <option [ngValue]="salleOption.id" *ngFor="let salleOption of sallecours; trackBy: trackSalleById">{{salleOption.nomSalle}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.salleCours?.dirty && editForm.controls.salleCours?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.salleCours?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

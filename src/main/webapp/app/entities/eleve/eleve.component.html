@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="ecoleApp.eleve.home.title">Eleves</span>
+        <button class="btn btn-primary float-right jh-create-entity create-eleve" [routerLink]="['/', { outlets: { popup: ['eleve-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ecoleApp.eleve.home.createLabel">
+            Create new Eleve
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="eleves">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nom"><span jhiTranslate="ecoleApp.eleve.nom">Nom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="prenom"><span jhiTranslate="ecoleApp.eleve.prenom">Prenom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="moyenne"><span jhiTranslate="ecoleApp.eleve.moyenne">Moyenne</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresseEleveVille"><span jhiTranslate="ecoleApp.eleve.adresseEleve">Adresse Eleve</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="eleveClasseNomClass"><span jhiTranslate="ecoleApp.eleve.eleveClasse">Eleve Classe</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let eleve of eleves ;trackBy: trackId">
+                <td><a [routerLink]="['../eleve', eleve.id ]">{{eleve.id}}</a></td>
+                <td>{{eleve.nom}}</td>
+                <td>{{eleve.prenom}}</td>
+                <td>{{eleve.moyenne}}</td>
+                <td>
+                    <div *ngIf="eleve.adresseEleveId">
+                        <a [routerLink]="['../adresse', eleve.adresseEleveId  ]" >{{eleve.adresseEleveVille}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="eleve.eleveClasseId">
+                        <a [routerLink]="['../classe', eleve.eleveClasseId  ]" >{{eleve.eleveClasseNomClass}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../eleve', eleve.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'eleve/'+ eleve.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'eleve/'+ eleve.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

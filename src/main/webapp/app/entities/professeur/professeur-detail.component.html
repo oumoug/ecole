@@ -1,0 +1,42 @@
+
+<div *ngIf="professeur">
+    <h2><span jhiTranslate="ecoleApp.professeur.detail.title">Professeur</span> {{professeur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ecoleApp.professeur.nom">Nom</span></dt>
+        <dd>
+            <span>{{professeur.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.professeur.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{professeur.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.professeur.adresseProfesseur">Adresse Professeur</span></dt>
+        <dd>
+            <div *ngIf="professeur.adresseProfesseurId">
+                <a [routerLink]="['/adresse', professeur.adresseProfesseurId]">{{professeur.adresseProfesseurVille}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.professeur.classeEnseigne">Classe Enseigne</span></dt>
+        <dd>
+            <span *ngFor="let classeEnseigne of professeur.classeEnseignes; let last = last">
+                <a [routerLink]="['/classe', classeEnseigne?.id ]">{{classeEnseigne.nomClass}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'professeur/'+ professeur.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

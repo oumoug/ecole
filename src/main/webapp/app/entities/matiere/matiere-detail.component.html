@@ -1,0 +1,32 @@
+
+<div *ngIf="matiere">
+    <h2><span jhiTranslate="ecoleApp.matiere.detail.title">Matiere</span> {{matiere.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ecoleApp.matiere.nomMatiere">Nom Matiere</span></dt>
+        <dd>
+            <span>{{matiere.nomMatiere}}</span>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.matiere.matiereProf">Matiere Prof</span></dt>
+        <dd>
+            <span *ngFor="let matiereProf of matiere.matiereProfs; let last = last">
+                <a [routerLink]="['/professeur', matiereProf?.id ]">{{matiereProf.nom}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'matiere/'+ matiere.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "coursProfesseur",
+            "otherEntityName": "professeur",
+            "otherEntityField": "nom",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cours"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "coursClass",
+            "otherEntityName": "classe",
+            "otherEntityField": "nomClass",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cours"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "salleCours",
+            "otherEntityName": "salle",
+            "otherEntityField": "nomSalle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cours"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "heure",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180215101005",
+    "entityTableName": "cours",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

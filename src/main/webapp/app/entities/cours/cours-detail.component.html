@@ -1,0 +1,48 @@
+
+<div *ngIf="cours">
+    <h2><span jhiTranslate="ecoleApp.cours.detail.title">Cours</span> {{cours.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ecoleApp.cours.date">Date</span></dt>
+        <dd>
+            <span>{{cours.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.cours.heure">Heure</span></dt>
+        <dd>
+            <span>{{cours.heure | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.cours.coursProfesseur">Cours Professeur</span></dt>
+        <dd>
+            <div *ngIf="cours.coursProfesseurId">
+                <a [routerLink]="['/professeur', cours.coursProfesseurId]">{{cours.coursProfesseurNom}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.cours.coursClass">Cours Class</span></dt>
+        <dd>
+            <div *ngIf="cours.coursClassId">
+                <a [routerLink]="['/classe', cours.coursClassId]">{{cours.coursClassNomClass}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ecoleApp.cours.salleCours">Salle Cours</span></dt>
+        <dd>
+            <div *ngIf="cours.salleCoursId">
+                <a [routerLink]="['/salle', cours.salleCoursId]">{{cours.salleCoursNomSalle}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cours/'+ cours.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adresseProfesseur",
+            "otherEntityName": "adresse",
+            "otherEntityField": "ville",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "professeur"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "professeurClass",
+            "relationshipName": "classeEnseigne",
+            "otherEntityName": "classe",
+            "otherEntityField": "nomClass",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "matiereEnseigne",
+            "otherEntityName": "matiere",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "matiereProf"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180215101002",
+    "entityTableName": "professeur",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,26 @@
+
+{
+    "ecoleApp": {
+        "professeur" : {
+            "home": {
+                "title": "Professeurs",
+                "createLabel": "Créer un nouveau Professeur",
+                "createOrEditLabel": "Créer ou éditer un Professeur"
+            },
+            "created": "Un nouveau Professeur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Professeur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Professeur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Professeur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Professeur"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "adresseProfesseur": "Adresse Professeur",
+            "classeEnseigne": "Classe Enseigne",
+            "matiereEnseigne": "Matiere Enseigne"
+        }
+    }
+}

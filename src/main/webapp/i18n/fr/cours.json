@@ -1,0 +1,26 @@
+
+{
+    "ecoleApp": {
+        "cours" : {
+            "home": {
+                "title": "Cours",
+                "createLabel": "Créer un nouveau Cours",
+                "createOrEditLabel": "Créer ou éditer un Cours"
+            },
+            "created": "Un nouveau Cours a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Cours avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Cours avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Cours {{ id }} ?"
+            },
+            "detail": {
+                "title": "Cours"
+            },
+            "date": "Date",
+            "heure": "Heure",
+            "coursProfesseur": "Cours Professeur",
+            "coursClass": "Cours Class",
+            "salleCours": "Salle Cours"
+        }
+    }
+}

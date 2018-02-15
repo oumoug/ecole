@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adresseEleve",
+            "otherEntityName": "adresse",
+            "otherEntityField": "ville",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "eleve"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "eleveClasse",
+            "otherEntityName": "classe",
+            "otherEntityField": "nomClass",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "eleve"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "moyenne",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20180215101001",
+    "entityTableName": "eleve",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

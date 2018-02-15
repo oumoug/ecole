@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "matiereEnseigne",
+            "relationshipName": "matiereProf",
+            "otherEntityName": "professeur",
+            "otherEntityField": "nom",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "matiereEleve",
+            "otherEntityName": "classe",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "matiereEtudier"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomMatiere",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180215101006",
+    "entityTableName": "matiere",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
