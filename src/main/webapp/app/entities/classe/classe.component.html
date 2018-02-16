@@ -27,6 +27,14 @@
                 <td>{{classe.nomClass}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
+                    <button type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'classe/'+ classe.id + '/addMatiere'} }]"
+                            replaceUrl="true"
+                            queryParamsHandling="merge"
+                            class="btn btn-primary btn-sm">
+                        <span class="fa fa-pencil"></span>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.addMatiere">addMatiere</span>
+                    </button>
                         <button type="submit"
                                 [routerLink]="['../classe', classe.id ]"
                                 class="btn btn-info btn-sm">
@@ -41,14 +49,7 @@
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'classe/'+ classe.id + '/edit'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-primary btn-sm">
-                            <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">add lesson</span>
-                        </button>
+                      
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'classe/'+ classe.id + '/delete'} }]"
                                 replaceUrl="true"

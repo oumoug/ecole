@@ -103,7 +103,8 @@
             "delete": "Supprimer",
             "open": "Ouvrir",
             "save": "Sauvegarder",
-            "view": "Voir"
+            "view": "Voir",
+            "addMatiere":"ajouter une matiere"
         },
         "detail": {
             "field": "Champs",

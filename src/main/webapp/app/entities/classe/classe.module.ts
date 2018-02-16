@@ -13,8 +13,9 @@ import {
     ClasseDeleteDialogComponent,
     classeRoute,
     classePopupRoute,
+    ClasseAddmatierePopupComponent,
+    ClasseAddmatiereDialogComponent ,
 } from './';
-
 const ENTITY_STATES = [
     ...classeRoute,
     ...classePopupRoute,
@@ -32,6 +33,8 @@ const ENTITY_STATES = [
         ClasseDeleteDialogComponent,
         ClassePopupComponent,
         ClasseDeletePopupComponent,
+        ClasseAddmatierePopupComponent,
+        ClasseAddmatiereDialogComponent,
     ],
     entryComponents: [
         ClasseComponent,
@@ -39,6 +42,8 @@ const ENTITY_STATES = [
         ClassePopupComponent,
         ClasseDeleteDialogComponent,
         ClasseDeletePopupComponent,
+        ClasseAddmatierePopupComponent,
+        ClasseAddmatiereDialogComponent ,
     ],
     providers: [
         ClasseService,

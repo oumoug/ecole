@@ -6,3 +6,4 @@ export * from './classe-delete-dialog.component';
 export * from './classe-detail.component';
 export * from './classe.component';
 export * from './classe.route';
+export * from './classe-addmatiere-dialog.component';

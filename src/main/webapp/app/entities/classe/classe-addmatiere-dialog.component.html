@@ -1,0 +1,25 @@
+<form name="addMatiereForm" role="form" novalidate (ngSubmit)="save()" #addMatiereForm="ngForm">
+
+  <div class="modal-header">
+      <h4 class="modal-title" id="myClasseLabel" jhiTranslate="ecoleApp.classe.home.addMatiere">Create or edit a Classe</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+              (click)="clear()">&times;</button>
+  </div>
+  <div class="modal-body">
+      <jhi-alert-error></jhi-alert-error>
+      <div class="form-group">
+         <label jhiTranslate="ecoleApp.classe.matiereEtudier" for="field_matiereEtudier">lesson</label>
+         <select class="form-control" id="field_matiereEtudier" multiple name="matiereEtudier" [(ngModel)]="classe.matiereEtudiers">
+              <option [ngValue]="getSelected(classe.matiereEtudiers, matiereOption)" *ngFor="let matiereOption of matieres; trackBy: trackMatiereById">{{matiereOption.nomMatiere}}</option>
+        </select>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+          <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+      </button>
+      <button type="submit" class="btn btn-primary">
+          <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+      </button>
+  </div>
+</form>

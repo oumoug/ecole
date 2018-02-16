@@ -5,6 +5,8 @@ import { ClasseComponent } from './classe.component';
 import { ClasseDetailComponent } from './classe-detail.component';
 import { ClassePopupComponent } from './classe-dialog.component';
 import { ClasseDeletePopupComponent } from './classe-delete-dialog.component';
+import { ClasseAddmatierePopupComponent}  from './classe-addmatiere-dialog.component';
+
 
 export const classeRoute: Routes = [
     {
@@ -56,5 +58,16 @@ export const classePopupRoute: Routes = [
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
+    },
+    {
+        path: 'classe/:id/addMatiere',
+        component:ClasseAddmatierePopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'ecoleApp.classe.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
     }
+    
 ];
