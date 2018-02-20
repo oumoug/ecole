@@ -5,6 +5,7 @@ import { ProfesseurComponent } from './professeur.component';
 import { ProfesseurDetailComponent } from './professeur-detail.component';
 import { ProfesseurPopupComponent } from './professeur-dialog.component';
 import { ProfesseurDeletePopupComponent } from './professeur-delete-dialog.component';
+import {ProfesseurAddClassePopupComponent} from './professeur-add-classe-dialog.component';
 
 export const professeurRoute: Routes = [
     {
@@ -50,6 +51,16 @@ export const professeurPopupRoute: Routes = [
     {
         path: 'professeur/:id/delete',
         component: ProfesseurDeletePopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'ecoleApp.professeur.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'professeur/:id/addClasse',
+        component: ProfesseurAddClassePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'ecoleApp.professeur.home.title'

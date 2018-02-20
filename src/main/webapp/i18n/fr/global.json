@@ -104,7 +104,9 @@
             "open": "Ouvrir",
             "save": "Sauvegarder",
             "view": "Voir",
-            "addMatiere":"ajouter une matiere"
+            "addMatiere":"Ajouter matiere",
+            "addProfesseur": "Ajouter professeur",
+            "addClasse": "Ajouter classe"
         },
         "detail": {
             "field": "Champs",

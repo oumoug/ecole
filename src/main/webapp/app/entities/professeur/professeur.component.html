@@ -35,6 +35,14 @@
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'professeur/'+ professeur.id + '/addClasse'} }]"
+                            replaceUrl="true"
+                            queryParamsHandling="merge"
+                            class="btn btn-primary btn-sm">
+                        <span class="fa fa-pencil"></span>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.addClasse">add classe</span>
+                    </button>
                         <button type="submit"
                                 [routerLink]="['../professeur', professeur.id ]"
                                 class="btn btn-info btn-sm">

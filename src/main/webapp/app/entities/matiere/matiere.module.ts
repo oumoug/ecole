@@ -13,7 +13,10 @@ import {
     MatiereDeleteDialogComponent,
     matiereRoute,
     matierePopupRoute,
+    MatiereAddProfesseurDialogComponent,
+    MatiereAddProfesseurPopupComponent,
 } from './';
+
 
 const ENTITY_STATES = [
     ...matiereRoute,
@@ -32,6 +35,8 @@ const ENTITY_STATES = [
         MatiereDeleteDialogComponent,
         MatierePopupComponent,
         MatiereDeletePopupComponent,
+        MatiereAddProfesseurDialogComponent,
+        MatiereAddProfesseurPopupComponent,
     ],
     entryComponents: [
         MatiereComponent,
@@ -39,6 +44,8 @@ const ENTITY_STATES = [
         MatierePopupComponent,
         MatiereDeleteDialogComponent,
         MatiereDeletePopupComponent,
+        MatiereAddProfesseurDialogComponent,
+        MatiereAddProfesseurPopupComponent,
     ],
     providers: [
         MatiereService,

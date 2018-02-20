@@ -6,3 +6,5 @@ export * from './professeur-delete-dialog.component';
 export * from './professeur-detail.component';
 export * from './professeur.component';
 export * from './professeur.route';
+export * from './professeur-add-classe-dialog.component';
+

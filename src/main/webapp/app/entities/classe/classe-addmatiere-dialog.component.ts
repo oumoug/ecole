@@ -8,7 +8,6 @@ import { Matiere, MatiereService } from '../matiere';
 import { Observable } from 'rxjs/Observable';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'jhi-classe-addmatiere-dialog',
   templateUrl: './classe-addmatiere-dialog.component.html',
@@ -18,7 +17,6 @@ export class ClasseAddmatiereDialogComponent implements OnInit {
   classe: Classe;
   matieres: Matiere[];
   routeSub: any;
-  private subscription: Subscription;
   constructor( private classeService: ClasseService,
     public activeModal: NgbActiveModal,
     private eventManager: JhiEventManager,
@@ -29,21 +27,8 @@ export class ClasseAddmatiereDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("lala");
-    this.subscription=this.route.params.subscribe((params) => {
-      this.load(params['id']);
-    });
     this.matiereService.query()
             .subscribe((res: HttpResponse<Matiere[]>) => { this.matieres = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-          console.log("loulou");
-  }
-  load(id) {
-    this.classeService.find(id)
-        .subscribe((classeResponse: HttpResponse<Classe>) => {
-            this.classe = classeResponse.body;
-        });
-     
-        
   }
   clear() {
     this.activeModal.dismiss('cancel');

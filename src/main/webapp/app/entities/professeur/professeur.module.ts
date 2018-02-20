@@ -13,7 +13,11 @@ import {
     ProfesseurDeleteDialogComponent,
     professeurRoute,
     professeurPopupRoute,
+    ProfesseurAddClasseDialogComponent,
+    ProfesseurAddClassePopupComponent,
+
 } from './';
+
 
 const ENTITY_STATES = [
     ...professeurRoute,
@@ -32,6 +36,8 @@ const ENTITY_STATES = [
         ProfesseurDeleteDialogComponent,
         ProfesseurPopupComponent,
         ProfesseurDeletePopupComponent,
+        ProfesseurAddClasseDialogComponent,
+        ProfesseurAddClassePopupComponent,
     ],
     entryComponents: [
         ProfesseurComponent,
@@ -39,6 +45,8 @@ const ENTITY_STATES = [
         ProfesseurPopupComponent,
         ProfesseurDeleteDialogComponent,
         ProfesseurDeletePopupComponent,
+        ProfesseurAddClasseDialogComponent,
+        ProfesseurAddClassePopupComponent,
     ],
     providers: [
         ProfesseurService,

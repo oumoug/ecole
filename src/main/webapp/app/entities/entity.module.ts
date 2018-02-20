@@ -7,6 +7,7 @@ import { EcoleAdresseModule } from './adresse/adresse.module';
 import { EcoleCoursModule } from './cours/cours.module';
 import { EcoleMatiereModule } from './matiere/matiere.module';
 import { EcoleSalleModule } from './salle/salle.module';
+import { AfficheListeEleveClasseComponent } from './affiche-liste-eleve-classe/affiche-liste-eleve-classe.component';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -20,7 +21,7 @@ import { EcoleSalleModule } from './salle/salle.module';
         EcoleSalleModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
-    declarations: [],
+    declarations: [AfficheListeEleveClasseComponent],
     entryComponents: [],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

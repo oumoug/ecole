@@ -5,7 +5,7 @@ import { MatiereComponent } from './matiere.component';
 import { MatiereDetailComponent } from './matiere-detail.component';
 import { MatierePopupComponent } from './matiere-dialog.component';
 import { MatiereDeletePopupComponent } from './matiere-delete-dialog.component';
-
+import {MatiereAddProfesseurPopupComponent}  from './matiere-add-professeur-dialog.component';
 export const matiereRoute: Routes = [
     {
         path: 'matiere',
@@ -50,6 +50,16 @@ export const matierePopupRoute: Routes = [
     {
         path: 'matiere/:id/delete',
         component: MatiereDeletePopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'ecoleApp.matiere.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'matiere/:id/addProfesseur',
+        component: MatiereAddProfesseurPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'ecoleApp.matiere.home.title'
